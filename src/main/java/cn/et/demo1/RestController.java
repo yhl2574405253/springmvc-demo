@@ -19,27 +19,53 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class RestController {
 
-    @RequestMapping(value="/user/{id}",method=RequestMethod.GET)
-    public String index(@PathVariable(value="id") String userId){
-        return "/day1/user.jsp";
-    }
-
+    /**
+     * 添加
+     * @param name
+     * @param response
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value="/user",method=RequestMethod.POST)
     public String addUser(String name,HttpServletResponse response) throws Exception{
-        response.getWriter().println(name+" add success");
+        response.getWriter().println(name+" 添加成功！！");
         return null;
     }
 
-    @RequestMapping(value="/user/{id}",method=RequestMethod.PUT)
-    public String updateUser(@PathVariable(value="id") String userId,HttpServletResponse response) throws Exception{
-        response.getWriter().println(userId+" update success");
-        return null;
-    }
-
+    /**
+     * 删除
+     * @param userId
+     * @param response
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value="/user/{id}",method=RequestMethod.DELETE)
     public String deleteUser(@PathVariable(value="id") String userId,HttpServletResponse response) throws Exception{
-        response.getWriter().println(userId+" delete success");
+        response.getWriter().println(userId+" 删除成功！！");
         return null;
     }
 
+    /**
+     * 修改
+     * @param userId
+     * @param response
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value="/user/{id}",method=RequestMethod.PUT)
+    public String updateUser(@PathVariable(value="id") String userId,HttpServletResponse response) throws Exception{
+        response.getWriter().println(userId+" 修改成功！！");
+        return null;
+    }
+
+    /**
+     * 查询
+     * @param userId
+     * @return
+     */
+    @RequestMapping(value="/user/{id}",method=RequestMethod.GET)
+    public String getUser(@PathVariable(value="id") String userId, HttpServletResponse response)throws Exception{
+        response.getWriter().println(userId+" 查询成功！！");
+        return null;
+    }
 }

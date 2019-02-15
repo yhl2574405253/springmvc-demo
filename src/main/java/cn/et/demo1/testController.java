@@ -13,6 +13,7 @@ import java.io.IOException;
  */
 @Controller
 public class testController {
+
     /**
      * 在以前的开发过程中取参数需要用request.getParameter("id") 来取
      */

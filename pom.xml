@@ -16,11 +16,25 @@
       <version>4.3.12.RELEASE</version>
     </dependency>
 
+    <!--添加文件上传的依赖-->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.3</version>
+    </dependency>
+
+    <!-- jsr303验证框架 -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>4.3.2.Final</version>
+    </dependency>
+
+    <!--javaee.jar包是支持javaweb编程的基础jar包-->
     <dependency>
       <groupId>org.apache.openejb</groupId>
       <artifactId>javaee-api</artifactId>
       <version>5.0-1</version>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>

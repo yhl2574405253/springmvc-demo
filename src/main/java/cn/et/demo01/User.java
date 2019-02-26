@@ -1,4 +1,4 @@
-package cn.et.demo1;
+package cn.et.demo01;
 
 public class User {
     private String id;

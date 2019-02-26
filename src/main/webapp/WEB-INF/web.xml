@@ -3,18 +3,6 @@
          xmlns="http://java.sun.com/xml/ns/j2ee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-
-  <!-- 请求method支持 put和delete必须添加过滤器 -->
-  <filter>
-    <filter-name>myFilter</filter-name>
-    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>myFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-
-
   <!-- SpringMVC的前端控制器 -->
   <servlet>
     <servlet-name>mvc</servlet-name>
@@ -26,11 +14,48 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>mvc</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+  <!--配置spring监听器 在使用springmvc的标签或者国际化中 都需要spring的支持 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring.xml</param-value>
+  </context-param>
+
+  <!-- 解决乱码的配置 -->
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <!-- 设置request 字符集 -->
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <!-- 设置response 字符集 -->
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- 请求method支持 put和delete必须添加过滤器 -->
+  <filter>
+    <filter-name>myFilter</filter-name>
+    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>myFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>
         

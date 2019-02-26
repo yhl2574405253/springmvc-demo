@@ -1,4 +1,4 @@
-package cn.et.demo1;
+package cn.et.demo01;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +46,6 @@ public class testController {
      */
     @RequestMapping("/test4")
     public String test4(){
-        return "/demo.jsp";
+        return "/demo03/success.jsp";
     }
 }

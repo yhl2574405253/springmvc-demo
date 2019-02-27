@@ -37,12 +37,38 @@
 
     <!--该拦截器用于 拦截url上的参数 只是当jsp经过action之后 才会将当前的国家和语言存储在session 同时从session中获取-->
     <mvc:interceptors>
-        <bean id="localeChangeInterceptor"
-              class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
             <property name="paramName" value="locale"></property>
         </bean>
+        <mvc:interceptor>
+            <!-- 拦截指定的映射路径 -->
+            <mvc:mapping path="/demo05/test1" />
+            <bean id="test1" class="cn.et.demo05.util.Test1"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <!-- 拦截指定的映射路径 -->
+            <mvc:mapping path="/demo05/test2" />
+            <bean id="test2" class="cn.et.demo05.util.Test2"></bean>
+        </mvc:interceptor>
     </mvc:interceptors>
+
     <!-- 参数需要被临时存储在某个地方 当用户再次访问 使用之前设置的参数 -->
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+
+    <!-- 扫描jdbc.properties -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!-- 数据源只是为了获取连接 ${username}是个关键字 默认获取操作系统的用户名 Administrator-->
+    <bean id="dataSouce"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${url}" ></property>
+        <property name="username" value="${username1}" ></property>
+        <property name="password" value="${password1}" ></property>
+        <property name="driverClassName" value="${driverClass}" ></property>
+    </bean>
+
+    <!--  jdbcTemplate 是jdbc的一个模板 封装一些简单的增删改查方法 只要传入sql语句就可以了 -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSouce"></property>
+    </bean>
 
 </beans>

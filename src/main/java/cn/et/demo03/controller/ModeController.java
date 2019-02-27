@@ -16,7 +16,7 @@ public class ModeController {
     @RequestMapping("/case")
     public String case1(Map map) throws Exception{
         map.put("sex", "获取成功!!");
-        return "/demo03/model.jsp";
+        return "/demo03/mapper.jsp";
     }
 
 
@@ -28,7 +28,7 @@ public class ModeController {
     @RequestMapping(value="/case2")
     public ModelAndView case2() throws Exception {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("/demo03/model.jsp");
+        mav.setViewName("/demo03/mapper.jsp");
         mav.addObject("sex", "boy");
         return mav;
     }

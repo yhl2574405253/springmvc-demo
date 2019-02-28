@@ -51,7 +51,7 @@
     <!--</bean>-->
 
 
-    <!-- 注意 一定使用messageSource 作为bean名称 -->
+    <!-- 国际化的配置 注意：一定使用messageSource 作为bean名称 -->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="my"></property>
     </bean>

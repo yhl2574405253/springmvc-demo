@@ -19,7 +19,7 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-  <!--配置spring监听器 在使用springmvc的标签或者国际化中 都需要spring的支持 -->
+  <!--配置spring监听器 在使用springMvc的标签或者国际化中 都需要spring的支持 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>

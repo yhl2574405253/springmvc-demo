@@ -24,7 +24,7 @@ public class testController {
     }
 
     /**
-     * springmvc取参数只要在方法声明一个变量，然后参数可以根据名字自动匹配
+     * springMvc取参数只要在方法声明一个变量，然后参数可以根据名字自动匹配
      */
     @RequestMapping("/test2")
     public String test2(String id, HttpServletResponse response) throws IOException {
@@ -42,7 +42,7 @@ public class testController {
     }
 
     /**
-     * springmvc 可以直接根据一个路径来跳转
+     * springMvc 可以直接根据一个路径来跳转
      */
     @RequestMapping("/test4")
     public String test4(){
